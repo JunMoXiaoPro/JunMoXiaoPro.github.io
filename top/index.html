@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="top,文章阅读量排行榜">
 
 
 
@@ -81,15 +81,18 @@
 
 
 
-<meta name="keywords" content="JAVA,hive,spark,flume,hbase,大数据...">
+<meta name="description" content="博客文章阅读量排行榜">
+<meta name="keywords" content="top,文章阅读量排行榜">
 <meta property="og:type" content="website">
-<meta property="og:title" content="top">
+<meta property="og:title" content="TopX &#x2F;* 可以不为 TopX，随便取 *&#x2F;">
 <meta property="og:url" content="http://yoursite.com/top/index.html">
 <meta property="og:site_name" content="君莫笑的博客">
+<meta property="og:description" content="博客文章阅读量排行榜">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-29T06:35:40.450Z">
+<meta property="og:updated_time" content="2019-09-29T06:43:28.696Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="top">
+<meta name="twitter:title" content="TopX &#x2F;* 可以不为 TopX，随便取 *&#x2F;">
+<meta name="twitter:description" content="博客文章阅读量排行榜">
 
 
 
@@ -125,7 +128,7 @@
 
 
 
-  <title>top | 君莫笑的博客</title>
+  <title>TopX /* 可以不为 TopX，随便取 */ | 君莫笑的博客</title>
   
 
 
@@ -327,8 +330,12 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">top</h1>
+	<h1 class="post-title" itemprop="name headline">TopX /* 可以不为 TopX，随便取 */</h1>
 
+
+	<div class="post-meta">
+		<div class="post-description">博客文章阅读量排行榜</div>
+	</div>
 
 
 </header>
@@ -339,7 +346,33 @@
       <div class="post-body">
         
         
-          
+          <div id="top"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script>AV.initialize("yQ5IOSXl3TosVmYssXceXEcG-gzGzoHsz", "BhWWwGMhi5trajzwtcCrimQP");</script>
+<script type="text/javascript">
+    var time=0
+    var title=""
+    var url=""
+    var query = new AV.Query('Counter');
+    query.notEqualTo('id',0);
+    query.descending('time');
+    query.limit(1000);
+    query.find().then(function (todo) {
+        for (var i=0;i<1000;i++){
+            var result=todo[i].attributes;
+            time=result.time;
+            title=result.title;
+            url=result.url;
+            var content="<a href='"+"https://junmoxiaopro.github.io"+url+"'>"+title+"</a>"+"<br />"+"<font color='#555'>"+"阅读次数："+time+"</font>"+"<br /><br />";
+            document.getElementById("top").innerHTML+=content
+        }
+    }, function (error) {
+        console.log("error");
+    });
+</script>
+
+<style>.post-description { display: none; }</style>
         
       </div>
       
@@ -357,13 +390,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
 
         </div>
         
